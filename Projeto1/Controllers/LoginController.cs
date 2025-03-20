@@ -7,6 +7,13 @@ namespace Projeto1.Controllers
 {
     public class LoginController : Controller
     {
+        //Criando Construtor
+        private readonly UsuarioRepositorio _usuasioRepositorio;
+        public LoginController(UsuarioRepositorio usuarioRepositorio)
+        {
+            _usuasioRepositorio = usuarioRepositorio;
+        }
+       
         public IActionResult Login()
         {
             return View();
@@ -22,7 +29,7 @@ namespace Projeto1.Controllers
                 //Autenticação Bem-Sucedida
                 return RedirectToAction("Index", "Home");
             }
-            ModelState.AddModelError("", "Email ou senha invalidos.";
+            ModelState.AddModelError("", "Email ou senha invalidos.");
             return View();
 
         }
@@ -45,5 +52,5 @@ namespace Projeto1.Controllers
         }
     }   
 
- }
+}
 
