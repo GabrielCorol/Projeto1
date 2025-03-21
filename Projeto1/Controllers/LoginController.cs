@@ -8,10 +8,10 @@ namespace Projeto1.Controllers
     public class LoginController : Controller
     {
         //Criando Construtor
-        private readonly UsuarioRepositorio _usuasioRepositorio;
+        private readonly UsuarioRepositorio _usuarioRepositorio;
         public LoginController(UsuarioRepositorio usuarioRepositorio)
         {
-            _usuasioRepositorio = usuarioRepositorio;
+            _usuarioRepositorio = usuarioRepositorio;
         }
        
         public IActionResult Login()
@@ -23,7 +23,7 @@ namespace Projeto1.Controllers
         [HttpPost]
         public IActionResult Login(string email, string senha)
         {
-            var usuario = _usuarioRepositoirio.ObterUsuario(email);
+            var usuario = _usuarioRepositorio.ObterUsuario(email);
             if (usuario != null && usuario.Senha == senha)
             {
                 //Autenticação Bem-Sucedida
